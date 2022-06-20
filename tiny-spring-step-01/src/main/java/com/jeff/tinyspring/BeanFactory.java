@@ -13,11 +13,11 @@ public class BeanFactory {
 
     private Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>();
 
-    public Object getBean(String key) {
-        return beanDefinitionMap.get(key).getBean();
+    public Object getBean(String name) {
+        return beanDefinitionMap.get(name).getBean();
     }
 
-    public void registerBeanDefinition() {
-
+    public void registerBeanDefinition(String name, BeanDefinition beanDefinition) {
+        beanDefinitionMap.put(name, beanDefinition);
     }
 }

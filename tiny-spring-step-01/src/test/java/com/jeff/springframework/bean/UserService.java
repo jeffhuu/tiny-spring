@@ -1,4 +1,4 @@
-package com.jeff.tinyspring.bean;
+package com.jeff.springframework.bean;
 
 /**
  * @author Jeff Hu

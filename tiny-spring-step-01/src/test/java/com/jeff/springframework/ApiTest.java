@@ -1,6 +1,6 @@
-package com.jeff.tinyspring;
+package com.jeff.springframework;
 
-import com.jeff.tinyspring.bean.UserService;
+import com.jeff.springframework.bean.UserService;
 import org.junit.Test;
 
 /**

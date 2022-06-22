@@ -1,4 +1,4 @@
-package com.jeff.tinyspring;
+package com.jeff.springframework;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

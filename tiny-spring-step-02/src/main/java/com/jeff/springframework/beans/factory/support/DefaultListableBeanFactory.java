@@ -9,6 +9,8 @@ import java.util.Map;
 /**
  * @program: tiny-spring
  * @author: Jeff Hu 2022/06/21 15:34
+ *
+ * 注册 bean 定义接口实现类，提供 bean 定义的注册和获取功能
  */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry{
 

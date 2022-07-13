@@ -1,7 +1,6 @@
 package com.jeff.springframework.beans.factory.support;
 
 import com.jeff.springframework.beans.factory.config.SingletonBeanRegistry;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +19,7 @@ public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
         return singletonObjects.get(beanName);
     }
 
-    protected void addSingleton(String beanName, Object singletonObject) {
+    public void register(String beanName, Object singletonObject) {
         singletonObjects.put(beanName, singletonObject);
     }
 

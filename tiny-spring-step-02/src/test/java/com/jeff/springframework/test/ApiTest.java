@@ -1,10 +1,7 @@
 package com.jeff.springframework.test;
 
 
-import com.jeff.springframework.beans.BeansException;
-import com.jeff.springframework.beans.factory.BeanFactory;
 import com.jeff.springframework.beans.factory.config.BeanDefinition;
-import com.jeff.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory;
 import com.jeff.springframework.beans.factory.support.DefaultListableBeanFactory;
 import com.jeff.springframework.test.bean.UserService;
 import org.junit.Test;

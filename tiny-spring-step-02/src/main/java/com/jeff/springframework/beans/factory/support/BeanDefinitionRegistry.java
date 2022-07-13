@@ -6,6 +6,8 @@ import com.jeff.springframework.beans.factory.config.BeanDefinition;
  * @program: tiny-spring
  * @description:
  * @author: Jeff Hu 2022/06/21 13:57
+ *
+ * 注册 bean 定义接口
  */
 public interface BeanDefinitionRegistry {
 

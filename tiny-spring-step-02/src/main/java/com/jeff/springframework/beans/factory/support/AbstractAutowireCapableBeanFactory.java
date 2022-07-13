@@ -6,6 +6,9 @@ import com.jeff.springframework.beans.factory.config.BeanDefinition;
 /**
  * @program: tiny-spring
  * @author: Jeff Hu 2022/06/21 15:33
+ *
+ * 继承抽象类 AbstractBeanFactory
+ * 只实现其中一个抽象方法 createBean 创建 bean 实例
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
 

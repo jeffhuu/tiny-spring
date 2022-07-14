@@ -9,14 +9,24 @@ import java.lang.reflect.Constructor;
  */
 public class AbstractAutowireCapableBeanFactory extends DefaultListableBeanFactory{
 
+    private InstantiationStrategy instantiationStrategy = new SimpleInstantiationStrategy();
+
     @Override
     public Object createBean(BeanDefinition beanDefinition, String beanName, Object[] args) {
+        Constructor constructor = null;
         Class<?> clazz = beanDefinition.getBeanClass();
         Constructor<?>[] declaredConstructors = clazz.getDeclaredConstructors();
         for (Constructor<?> ctor : declaredConstructors) {
             if (null != args && ctor.getTypeParameters().length == args.length) {
-
+                constructor = ctor;
+                break;
             }
         }
+        return getInstantiationStrategy().instantiate(beanDefinition, beanName, constructor, args);
     }
+
+    public InstantiationStrategy getInstantiationStrategy() {
+        return instantiationStrategy;
+    }
+
 }

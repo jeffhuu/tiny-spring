@@ -1,36 +1,33 @@
 package com.jeff.springframework.beans.factory.support;
 
+import com.jeff.springframework.beans.BeansException;
 import com.jeff.springframework.beans.factory.BeanFactory;
 import com.jeff.springframework.beans.factory.config.BeanDefinition;
 
-/**
- * @author 胡星宇 <huxingyu@leyaoyao.com>
- * @date 2022/07/13
- */
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
 
     @Override
-    public Object getBean(String beanName) {
-        return doGetBean(beanName, null);
+    public Object getBean(String name) throws BeansException {
+        return doGetBean(name);
     }
 
     @Override
-    public Object getBean(String beanName, Object[] args) {
-        return doGetBean(beanName, args);
+    public Object getBean(String name, Object... args) throws BeansException {
+        return doGetBean(name, args);
     }
 
-    protected <T> T doGetBean(String beanName, final Object[] args) {
-        Object bean = getSingleton(beanName);
+    protected <T> T doGetBean(String name, Object... args) {
+        Object bean = getSingleton(name);
         if (null != bean) {
             return (T) bean;
         }
 
-        BeanDefinition beanDefinition = getBeanDefinition(beanName);
-        return (T) createBean(beanDefinition, beanName, args);
+        BeanDefinition beanDefinition = getBeanDefinition(name);
+        return (T) createBean(name, beanDefinition, args);
     }
 
-    public abstract BeanDefinition getBeanDefinition(String beanName);
+    public abstract Object createBean(String name, BeanDefinition beanDefinition, Object[] args) throws BeansException;
 
-    public abstract Object createBean(BeanDefinition beanDefinition, String beanName, Object[] args);
+    public abstract BeanDefinition getBeanDefinition(String beanName) throws BeansException;
 
 }

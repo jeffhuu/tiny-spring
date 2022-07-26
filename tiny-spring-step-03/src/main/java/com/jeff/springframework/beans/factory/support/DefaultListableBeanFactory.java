@@ -1,24 +1,25 @@
 package com.jeff.springframework.beans.factory.support;
 
+import com.jeff.springframework.beans.BeansException;
 import com.jeff.springframework.beans.factory.config.BeanDefinition;
+import com.jeff.springframework.beans.factory.config.SingletonBeanRegistry;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author 胡星宇 <huxingyu@leyaoyao.com>
- * @date 2022/07/13
- */
-public abstract class DefaultListableBeanFactory extends AbstractBeanFactory{
+public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry {
 
-    private Map<String, BeanDefinition> definitionMap = new HashMap<>();
+    private Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
+
 
     @Override
-    public BeanDefinition getBeanDefinition(String beanName) {
-        return definitionMap.get(beanName);
+    public BeanDefinition getBeanDefinition(String beanName) throws BeansException {
+        return beanDefinitionMap.get(beanName);
     }
 
+    @Override
     public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) {
-        definitionMap.put(beanName, beanDefinition);
+        beanDefinitionMap.put(beanName, beanDefinition);
     }
+
 
 }
